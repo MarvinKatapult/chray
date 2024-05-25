@@ -2,7 +2,7 @@
 project="chray"
 
 inc_raylib="-Lraylib/src/ -lraylib -Iraylib/src"
-inc_terra="-Llibterra -lterra -Ilibterra/include"
+inc_terra="-Lterra -lterra -Iterra/include"
 
 red_echo() {
     local text=$1
@@ -23,8 +23,8 @@ echo -n "Compiling all files for project "
 yellow_echo "$project"
 
 ########## Compiling Terra ##########
-if [ ! -f ./libterra/libterra.a ]; then
-    cd libterra && ./build.sh -lib
+if [ ! -f ./terra/libterra.a ]; then
+    cd terra && ./build.sh -lib
     error_code=$?
 
     cd ../
